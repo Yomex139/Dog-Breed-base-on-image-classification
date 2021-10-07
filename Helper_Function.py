@@ -3,6 +3,9 @@
 
 import tensorflow as tf
 
+import random as ran
+import os
+
 # Create a function to import an image and resize it to be able to be used with our model
 def load_and_prep_image(filename, img_shape=224, scale=True):
   """
@@ -43,9 +46,9 @@ def bef_train_visual(path='10_food_classes_10_percent/train/'):
   '''
   #set up random class generator
   randc = os.listdir('10_food_classes_10_percent/train/')
-  class_name = random.choice(randc)
+  class_name = ran.choice(randc)
   #set up random image generator
-  rand = random.sample(os.listdir(path+class_name+'/'),4)
+  rand = ran.sample(os.listdir(path+class_name+'/'),4)
   #filepath
   for i in range(len(rand)):
     plt.subplot(2,2,i+1)
@@ -66,7 +69,7 @@ def visualize_after(image,label):
   label:
         a batch of preprocessed 32 acompany labels for the respective images
   '''
-  rand_class = random.sample(range(10),6)
+  rand_class = ran.sample(range(10),6)
   class_name = np.array(os.listdir('10_food_classes_10_percent/train/'))
   for i in range(6):
     plt.subplot(3,3,i+1)
