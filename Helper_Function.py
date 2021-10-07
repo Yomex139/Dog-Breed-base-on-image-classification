@@ -40,6 +40,7 @@ def bef_train_visual(path='10_food_classes_10_percent/train/'):
         directory
   '''
   #set up random class generator
+  import random
   randc = os.listdir('10_food_classes_10_percent/train/')
   class_name = random.choice(randc)
   #set up random image generator
