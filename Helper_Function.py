@@ -33,6 +33,46 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.metrics import confusion_matrix
 
+def bef_train_visual(path='10_food_classes_10_percent/train/'):
+  '''
+  Return:
+        diplay four random unprocessed images from file
+        directory
+  '''
+  #set up random class generator
+  randc = os.listdir('10_food_classes_10_percent/train/')
+  class_name = random.choice(randc)
+  #set up random image generator
+  rand = random.sample(os.listdir(path+class_name+'/'),4)
+  #filepath
+  for i in range(len(rand)):
+    plt.subplot(2,2,i+1)
+    img_nump = plt.imread(path+class_name+'/'+rand[i])
+    plt.imshow(img_nump)
+    plt.title(class_name)
+    plt.axis('off')
+    print(img_nump.shape)
+    
+    #visualizing the first batch of processed data(randomly)
+def visualize_after(image,label):
+  '''
+  visualizing dataset in batches after preprocessing
+  image:
+        a batch of preprocessed 32 images 
+  label:
+        a batch of preprocessed 32 acompany labels for the respective images
+  '''
+  rand_class = random.sample(range(10),6)
+  class_name = np.array(os.listdir('10_food_classes_10_percent/train/'))
+  for i in range(6):
+    plt.subplot(3,3,i+1)
+    class_ = class_name[np.argmax(labels[rand_class[i]])]
+    image = images[rand_class[i]]
+    plt.imshow(image)
+    plt.title(class_)
+    plt.axis('off')
+    print(image.shape)
+
 # Our function needs a different name to sklearn's plot_confusion_matrix
 def make_confusion_matrix(y_true, y_pred, classes=None, figsize=(10, 10), text_size=15, norm=False, savefig=False): 
   """Makes a labelled confusion matrix comparing predictions and ground truth labels.
