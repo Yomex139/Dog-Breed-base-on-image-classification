@@ -56,6 +56,8 @@ def bef_train_visual(path='10_food_classes_10_percent/train/'):
     print(img_nump.shape)
     
     #visualizing the first batch of processed data(randomly)
+import random
+import os
 def visualize_after(image,label):
   '''
   visualizing dataset in batches after preprocessing
