@@ -31,6 +31,8 @@ def load_and_prep_image(filename, img_shape=224, scale=True):
 import itertools
 import matplotlib.pyplot as plt
 import numpy as np
+import random
+import os
 from sklearn.metrics import confusion_matrix
 
 def bef_train_visual(path='10_food_classes_10_percent/train/'):
@@ -40,7 +42,6 @@ def bef_train_visual(path='10_food_classes_10_percent/train/'):
         directory
   '''
   #set up random class generator
-  import random
   randc = os.listdir('10_food_classes_10_percent/train/')
   class_name = random.choice(randc)
   #set up random image generator
