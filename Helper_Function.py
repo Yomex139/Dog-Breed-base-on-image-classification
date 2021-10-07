@@ -73,7 +73,7 @@ def visualize_after(image,label):
   class_name = np.array(os.listdir('10_food_classes_10_percent/train/'))
   for i in range(6):
     plt.subplot(3,3,i+1)
-    class_ = class_name[np.argmax(labels[rand_class[i]])]
+    class_ = class_name[np.argmax(label[rand_class[i]])]
     image = images[rand_class[i]]
     plt.imshow(image)
     plt.title(class_)
